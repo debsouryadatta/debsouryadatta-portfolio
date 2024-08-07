@@ -62,7 +62,7 @@ function Hero() {
           
           
         </p>
-        <a href="https://drive.google.com/file/d/1xSTnBlr9Nw1oMzpnpRqDwGyfgrzKPA2m/view?usp=drive_link" target="_blank">
+        <a href="https://drive.google.com/file/d/1AkOr3wnwHUyHoEkfE4TIdkM9pnIainVD/view?usp=drive_link" target="_blank">
           <button className="hover">Resume</button>
         </a>
       </div>
