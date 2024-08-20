@@ -9,7 +9,7 @@ function Projects() {
         <ProjectCard
           src={`https://res.cloudinary.com/diyxwdtjd/image/upload/v1723009343/projects/Screenshot_from_2024-08-07_10-14-46_urqw5p.png`}
           codeLink={`https://github.com/debsouryadatta/souryax-course-generator`}
-          externalLink={`https://coursex-bswq.onrender.com/`}
+          externalLink={`https://coursex.souryax.tech/`}
           h3="CourseX"
           p=""
         />
