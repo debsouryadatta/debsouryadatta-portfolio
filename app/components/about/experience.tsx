@@ -26,9 +26,9 @@ const experienceData = [
     achievements: [
       "Developed NextJS-based documentation and blog site, boosting SEO performance by 37%",
       "Enhanced web extension for captcha solver product, implementing robust error handling and modifying Javascript events",
-      "Collaborated on backend development for company's internal image labeling tool, scaling to support 100+ concurrent users"
+      "Collaborated on backend development with FastApi for company's internal tool"
     ],
-    skills: ["NextJs", "WebExtensions", "FastApi", "MongoDB", "CI/CD", "AWS"]
+    skills: ["NextJs", "WebExtensions", "FastApi", "Postgres", "CI/CD", "AWS"]
   }
 ];
 
