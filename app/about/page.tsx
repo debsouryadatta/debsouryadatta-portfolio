@@ -88,16 +88,14 @@ export default function About() {
 							</div>
 
 							<div className="flex gap-4">
-								<Link
-									href="https://drive.google.com/file/d/1rU5k7cn2OVRcjdJvSHqZjHkKBbpYHkid/view"
-									download
-									target="_blank"
-									className="flex items-center gap-2 px-4 py-2 text-sm text-zinc-300 bg-zinc-800/50 hover:bg-zinc-800/70 rounded-xl transition-all duration-300 backdrop-blur-sm group"
-									title="Download Resume"
+								<button
+									onClick={() => alert('Updating soon! 🚀')}
+									className="flex items-center gap-2 px-4 py-2 text-sm text-zinc-300 bg-zinc-800/50 hover:bg-zinc-800/70 rounded-xl transition-all duration-300 backdrop-blur-sm group cursor-pointer"
+									title="Resume coming soon!"
 								>
 									<Download size={16} className="group-hover:translate-y-0.5 transition-transform duration-300" />
 									<span>Resume</span>
-								</Link>
+								</button>
 							</div>
 						</div>
 					</div>
