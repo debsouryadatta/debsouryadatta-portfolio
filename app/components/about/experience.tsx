@@ -20,7 +20,7 @@ const experienceData = [
     title: "Full Stack Developer Intern",
     company: "YUPCHA SOFTWARES",
     type: "Internship",
-    location: "Remote",
+    location: "In Office",
     period: "April 2024 - Aug 2024",
     logo: "https://res.cloudinary.com/diyxwdtjd/image/upload/v1734166441/Personal/yupcha_softwares_logo_lfbbja.jpg",
     achievements: [
@@ -72,14 +72,14 @@ export default function Experience() {
                 <p className="text-zinc-400 font-medium text-sm sm:text-base">
                   {experience.company} • {experience.type} • {experience.location}
                 </p>
-                <ul className="space-y-2 text-zinc-300 text-sm sm:text-base">
+                {/* <ul className="space-y-2 text-zinc-300 text-sm sm:text-base">
                   {experience.achievements.map((achievement, i) => (
                     <li key={i} className="flex items-start">
                       <span className="mr-2 text-zinc-400">•</span>
                       {achievement}
                     </li>
                   ))}
-                </ul>
+                </ul> */}
                 <div className="flex flex-wrap gap-2 mt-3">
                   {experience.skills.map((skill, i) => (
                     <span
