@@ -7,6 +7,7 @@ import { Analytics } from "./components/analytics";
 export const metadata: Metadata = {
   title: "Debsourya.Datta",
   description: "ChillxCode☕",
+  metadataBase: new URL("https://debsouryacodez.vercel.app"),
   openGraph: {
     title: "Debsourya.Datta",
     description:

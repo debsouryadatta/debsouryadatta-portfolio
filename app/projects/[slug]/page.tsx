@@ -32,8 +32,13 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
-  const views =
-    (await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
+  let views = 0;
+  try {
+    views = (await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
+  } catch (error) {
+    console.error("Failed to fetch page views:", error);
+    // Continue with zero views if Redis fetch fails
+  }
 
   return (
     <div className="bg-zinc-50 min-h-screen">
