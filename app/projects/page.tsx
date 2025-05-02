@@ -10,7 +10,7 @@ const projects = [
     description: "An AI-powered platform for building and deploying conversational agents",
     techStack: [
       "NextJs", "Shadcn/ui", "Zustand", "NextAuth", "Prisma", 
-      "PostgreSQL", "FastApi", "LangChain", "Stripe", "Docker", "CI-CD", "AWS"
+      "PostgreSQL", "FastApi", "LangChain", "Groq Cloud", "Stripe", "Docker", "CI-CD", "AWS"
     ],
     links: {
       live: "https://aiverse.souryax.tech",
@@ -19,13 +19,33 @@ const projects = [
     }
   },
   {
-    title: "SnapWire",
-    description: "A mobile-first social media platform for photographers and visual artists",
-    techStack: ["React Native", "Node.js", "Express.js", "MongoDB"],
+    title: "YoutubeToBlogs",
+    description: "Transform YouTube Videos into Engaging Blog Posts",
+    techStack: ["NextJs", "Shadcn/ui", "Zustand", "Gemini AI", "Arcjet", "Docker", "CI-CD", "AWS"],
     links: {
-      live: "https://expo.dev/preview/update?message=Image%20upload%20to%20cloudinary%20feature&updateRuntimeVersion=1.0.0&createdAt=2024-05-26T09:02:26.423Z&slug=exp&projectId=5ecb9c0d-6217-4c2b-b9e3-654922adeb67&group=d68465a8-bfeb-463c-8868-630a6ae747ce",
-      github: "https://github.com/debsouryadatta/SnapWire",
-      youtube: "https://youtube.com/your-snapwire-demo"
+      live: "https://youtubetoblogs.souryax.tech",
+      github: "https://github.com/debsouryadatta/youtubetoblogs",
+      youtube: "https://youtube.com/your-youtubetoblogs-demo"
+    }
+  },
+  {
+    title: "Context AI",
+    description: "A browser extension that integrates Gemini AI to enhance your browsing experience.",
+    techStack: ["WXT Framework", "React", "TypeScript", "TailwindCSS", "Vercel AI SDK", "Gemini AI"],
+    links: {
+      live: "",
+      github: "https://github.com/debsouryadatta/context-ai",
+      youtube: "https://youtube.com/your-context-ai-demo"
+    }
+  },
+  {
+    title: "YouTube AI Agent",
+    description: "Create youtube content with this ai agent (fully autonomous)",
+    techStack: ["Python", "MoviePy", "Langgraph", "Gemini AI", "ElevenLabs", "Gemini Image gen"],
+    links: {
+      live: "",
+      github: "https://github.com/debsouryadatta/youtube_langgraph_agent",
+      youtube: ""
     }
   }
 ];
@@ -76,14 +96,16 @@ export default function ProjectsPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-4 mt-8 pt-4 border-t border-zinc-800">
-                  <Link
-                    href={project.links.live}
-                    className="text-zinc-200 hover:text-zinc-50 flex items-center gap-1.5 text-sm"
-                    target="_blank"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span>{project.title == "SnapWire" ? "Expo Link" : "Live Site"}</span>
-                  </Link>
+                  {project.links.live && (
+                    <Link
+                      href={project.links.live}
+                      className="text-zinc-200 hover:text-zinc-50 flex items-center gap-1.5 text-sm"
+                      target="_blank"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      <span>{project.title == "SnapWire" ? "Expo Link" : "Live Site"}</span>
+                    </Link>
+                  )}
                   <Link
                     href={project.links.github}
                     className="text-zinc-200 hover:text-zinc-50 flex items-center gap-1.5 text-sm"

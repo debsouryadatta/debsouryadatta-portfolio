@@ -30,11 +30,12 @@ export default function Technical() {
         database: [
             { name: "PostgreSQL", color: "bg-blue-600" },
             { name: "MongoDB", color: "bg-green-600" },
-            { name: "Firebase", color: "bg-orange-600" }
+            { name: "Supabase", color: "bg-orange-600" }
         ],
-        aiml: [
-            { name: "LangChain", color: "bg-green-700" },
-            { name: "Ollama", color: "bg-purple-600" }
+        genai: [
+            { name: "LangChain / Langgraph", color: "bg-green-700" },
+            { name: "Model Context Protocol", color: "bg-indigo-600" },
+            { name: "Retrieval Augmented Generation(RAG)", color: "bg-purple-600" }
         ],
         blockchain: [
             { name: "Solidity", color: "bg-slate-600" },
@@ -49,11 +50,10 @@ export default function Technical() {
             { name: "Git/Github", color: "bg-orange-700" }
         ],
         learning: [
-            { name: "ElectronJs", color: "bg-slate-600" },
-            { name: "WebRTC", color: "bg-blue-600" },
+            { name: "Agentic AI", color: "bg-slate-600" },
+            { name: "ElectronJs", color: "bg-blue-600" },
             { name: "Grafana", color: "bg-orange-600" },
             { name: "Kubernetes", color: "bg-blue-700" },
-            { name: "Unit Testing", color: "bg-purple-600" }
         ]
     }
 
@@ -91,9 +91,9 @@ export default function Technical() {
                         </div>
 
                         <div className="space-y-5">
-                            <h4 className="text-xl text-zinc-200 font-semibold tracking-wide">AI & Machine Learning</h4>
+                            <h4 className="text-xl text-zinc-200 font-semibold tracking-wide">Gen AI</h4>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                {skills.aiml.map((skill, i) => (
+                                {skills.genai.map((skill, i) => (
                                     <SkillTag key={i} {...skill} />
                                 ))}
                             </div>

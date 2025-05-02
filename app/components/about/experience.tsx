@@ -8,7 +8,7 @@ const experienceData = [
     company: "MESMER AI",
     type: "Internship",
     location: "Remote",
-    period: "Sept 2024 - Current",
+    period: "Sept 2024 - Dec 2024",
     logo: "https://res.cloudinary.com/diyxwdtjd/image/upload/v1734166441/Personal/mesmer_ai_logo_zlhxju.jpg",
     achievements: [
       "Handling both the Frontend and Backend of their product website for AI calling agent",

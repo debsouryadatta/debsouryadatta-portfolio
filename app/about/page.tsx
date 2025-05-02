@@ -87,7 +87,7 @@ export default function About() {
 								))}
 							</div>
 
-							<div className="flex gap-4">
+							{/* <div className="flex gap-4">
 								<button
 									onClick={() => alert('Updating soon! 🚀')}
 									className="flex items-center gap-2 px-4 py-2 text-sm text-zinc-300 bg-zinc-800/50 hover:bg-zinc-800/70 rounded-xl transition-all duration-300 backdrop-blur-sm group cursor-pointer"
@@ -96,7 +96,7 @@ export default function About() {
 									<Download size={16} className="group-hover:translate-y-0.5 transition-transform duration-300" />
 									<span>Resume</span>
 								</button>
-							</div>
+							</div> */}
 						</div>
 					</div>
 
