@@ -1,0 +1,68 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* Horizontal Gallery Styles */
+.horiz-gallery-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.horiz-gallery-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform;
+  position: relative;
+}
+
+.project-card {
+  flex-shrink: 0;
+}
+
+/* Smooth scroll behavior for the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar during horizontal scroll for cleaner look */
+.horiz-gallery-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.horiz-gallery-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Service panel transitions */
+.service-panel {
+  will-change: transform;
+}
+
+/* Pin spacer fix for GSAP */
+.pin-spacer {
+  flex-shrink: 0;
+}
+
+/* Selection styles for yellow background sections */
+#skills *::selection,
+#skills::selection,
+#contact *::selection,
+#contact::selection {
+  background-color: #0a0a0a;
+  color: #f5b301;
+}
+
+#skills *::-moz-selection,
+#skills::-moz-selection,
+#contact *::-moz-selection,
+#contact::-moz-selection {
+  background-color: #0a0a0a;
+  color: #f5b301;
+}

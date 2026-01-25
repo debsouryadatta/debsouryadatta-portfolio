@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debsourya Datta | Full Stack Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Syne', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              brand: {
+                black: '#050505',
+                dark: '#0A0A0A',
+                accent: '#FFBE5B', // Keeping the gold accent as requested
+                accentHover: '#E5A040',
+                gray: '#F3F4F6',
+                code: '#1e1e1e',
+              }
+            },
+            animation: {
+              'float-slow': 'float 8s ease-in-out infinite',
+              'float-medium': 'float 6s ease-in-out infinite',
+              'float-fast': 'float 4s ease-in-out infinite',
+              'spin-slow': 'spin 12s linear infinite',
+              'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              pulseGlow: {
+                '0%, 100%': { opacity: 0.4 },
+                '50%': { opacity: 0.8 },
+              }
+            },
+            backgroundImage: {
+              'grid-pattern': "linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px)",
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      body {
+        background-color: #050505;
+        color: white;
+      }
+      .bg-grid {
+        background-size: 40px 40px;
+        mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
+        -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "framer-motion": "https://esm.sh/framer-motion@^12.26.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
