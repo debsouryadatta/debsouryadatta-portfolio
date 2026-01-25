@@ -13,4 +13,5 @@ I'm a Full Stack Developer with a background in Electrical Engineering. I build 
 - **Twitter**: [@debsourya005](https://twitter.com/debsourya005)
 - **GitHub**: [@debsouryadatta](https://github.com/debsouryadatta)
 - **LinkedIn**: [Souryadip Datta](https://linkedin.com/in/souryadip-datta)
+- **YouTube**: [SouryaTalks](https://www.youtube.com/@souryatalks4201)
 
