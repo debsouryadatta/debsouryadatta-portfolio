@@ -1,20 +1,16 @@
+# Souryadatta's Portfolio
+
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+  <img src="https://res.cloudinary.com/diyxwdtjd/image/upload/v1769323193/projects/portfoliov3_ev5hkg.png" alt="Portfolio Preview" width="100%" />
 </div>
 
-# Run and deploy your AI Studio app
+## � About Me
 
-This contains everything you need to run your app locally.
+I'm a Full Stack Developer with a background in Electrical Engineering. I build scalable systems, AI-powered applications, and Web3 solutions. Passionate about clean architecture, performance optimization, and turning complex problems into elegant solutions.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1qGWb9mB8L5xxY3ZTMxyaNsbH4UMQ0XuP
+## 🔗 Links
 
-## Run Locally
+- **Twitter**: [@debsourya005](https://twitter.com/debsourya005)
+- **GitHub**: [@debsouryadatta](https://github.com/debsouryadatta)
+- **LinkedIn**: [Souryadip Datta](https://linkedin.com/in/souryadip-datta)
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
