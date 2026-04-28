@@ -5,91 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Debsourya Datta | Full Stack Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              display: ['Syne', 'sans-serif'],
-              mono: ['JetBrains Mono', 'monospace'],
+              sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
+              display: ['"Outfit"', '"Plus Jakarta Sans"', "sans-serif"],
+              mono: ['"IBM Plex Mono"', "ui-monospace", "monospace"],
             },
             colors: {
               brand: {
-                black: '#050505',
-                dark: '#0A0A0A',
-                accent: '#FFBE5B', // Keeping the gold accent as requested
-                accentHover: '#E5A040',
-                gray: '#F3F4F6',
-                code: '#1e1e1e',
-              }
+                black: "#171717",
+                dark: "#0F0F0F",
+                ink: "#171717",
+                canvas: "#F6F1E8",
+                surface: "#FFF9F0",
+                line: "#D8CFC2",
+                muted: "#6F675D",
+                accent: "#D7A449",
+                accentHover: "#C58F2F",
+                gray: "#F3EFE7",
+                code: "#EEE6D8",
+              },
             },
             animation: {
-              'float-slow': 'float 8s ease-in-out infinite',
-              'float-medium': 'float 6s ease-in-out infinite',
-              'float-fast': 'float 4s ease-in-out infinite',
-              'spin-slow': 'spin 12s linear infinite',
-              'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-20px)' },
-              },
-              pulseGlow: {
-                '0%, 100%': { opacity: 0.4 },
-                '50%': { opacity: 0.8 },
-              }
+              "spin-slow": "spin 12s linear infinite",
             },
             backgroundImage: {
-              'grid-pattern': "linear-gradient(to right, #222 1px, transparent 1px), linear-gradient(to bottom, #222 1px, transparent 1px)",
-            }
-          }
+              "grid-pattern":
+                "linear-gradient(to right, rgba(23,23,23,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(23,23,23,0.08) 1px, transparent 1px)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #f6f1e8;
+        color: #171717;
+      }
+
+      .bg-grid {
+        background-size: 42px 42px;
+        mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          8%,
+          black,
+          92%,
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          8%,
+          black,
+          92%,
+          transparent
+        );
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+          "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+          "react/": "https://esm.sh/react@^19.2.3/",
+          "react": "https://esm.sh/react@^19.2.3",
+          "framer-motion": "https://esm.sh/framer-motion@^12.26.2"
         }
       }
     </script>
-    <style>
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0a0a0a;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-      }
-      body {
-        background-color: #050505;
-        color: white;
-      }
-      .bg-grid {
-        background-size: 40px 40px;
-        mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
-        -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, black, 95%, transparent);
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "framer-motion": "https://esm.sh/framer-motion@^12.26.2"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
   <body>
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>

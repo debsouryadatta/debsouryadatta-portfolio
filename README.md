@@ -1,17 +1,16 @@
-# Souryadatta's Portfolio
+# Debsourya Datta — Portfolio
 
-<div align="center">
-  <img src="https://res.cloudinary.com/diyxwdtjd/image/upload/v1769323193/projects/portfoliov3_ev5hkg.png" alt="Portfolio Preview" width="100%" />
-</div>
+![Portfolio preview](https://res.cloudinary.com/diyxwdtjd/image/upload/v1769323193/projects/portfoliov3_ev5hkg.png)
 
-## � About Me
+## About
 
-I'm a Full Stack Developer with a background in Electrical Engineering. I build scalable systems, AI-powered applications, and Web3 solutions. Passionate about clean architecture, performance optimization, and turning complex problems into elegant solutions.
+I’m a full stack engineer. I care about clear, reliable products—from AI and desktop apps to video tools, mobile learning, and large backend systems. This site is a short tour of selected work and how each project was built.
 
-## 🔗 Links
+**Selected projects** opens deeper write-ups with overview, stack, features, and visuals. If you’re hiring or collaborating, start there—or use the links below to reach me.
 
-- **Twitter**: [@debsourya005](https://twitter.com/debsourya005)
-- **GitHub**: [@debsouryadatta](https://github.com/debsouryadatta)
-- **LinkedIn**: [Souryadip Datta](https://linkedin.com/in/souryadip-datta)
-- **YouTube**: [SouryaTalks](https://www.youtube.com/@souryatalks4201)
+## Links
 
+- **Twitter:** [@debsourya005](https://twitter.com/debsourya005)
+- **GitHub:** [@debsouryadatta](https://github.com/debsouryadatta)
+- **LinkedIn:** [Souryadip Datta](https://linkedin.com/in/souryadip-datta)
+- **YouTube:** [SouryaTalks](https://www.youtube.com/@souryatalks4201)

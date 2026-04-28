@@ -13,6 +13,7 @@ export interface Project {
   githubUrl?: string;
   downloadUrl?: string;
   playStoreUrl?: string;
+  aboutUrl?: string;
 }
 
 export interface Skill {

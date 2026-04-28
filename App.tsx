@@ -1,114 +1,148 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Hero } from "./components/Hero";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { ProjectCaseStudy } from "./components/ProjectCaseStudy";
+
+const navigationItems = [
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
 
 const App: React.FC = () => {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const projectSlug =
+    typeof window !== "undefined"
+      ? window.location.pathname.match(/^\/projects\/([^/]+)\/?$/)?.[1]
+      : undefined;
+
+  useEffect(() => {
+    if (projectSlug) return;
+
+    const scrollFromHash = () => {
+      const raw = window.location.hash.replace(/^#/, "");
+      if (!raw) return;
+
+      const el = raw.startsWith("project-")
+        ? document.getElementById(raw)
+        : ["projects", "skills", "contact"].includes(raw)
+          ? document.getElementById(raw)
+          : null;
+
+      if (!el) return;
+
+      window.requestAnimationFrame(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    };
+
+    scrollFromHash();
+    window.addEventListener("hashchange", scrollFromHash);
+    return () => window.removeEventListener("hashchange", scrollFromHash);
+  }, [projectSlug]);
+
+  if (projectSlug) {
+    return <ProjectCaseStudy slug={projectSlug} />;
+  }
 
   return (
-    <main className="font-sans antialiased bg-brand-black min-h-screen selection:bg-brand-accent selection:text-brand-black overflow-x-hidden">
-      {/* Scroll Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-brand-accent origin-left z-50"
-        style={{ scaleX }}
-      />
-
-      {/* Navigation */}
-      <nav
-        className={`fixed top-0 w-full z-40 transition-all duration-300 ${isMenuOpen ? "bg-brand-black" : "bg-brand-black/80 backdrop-blur-md border-b border-white/5"}`}
-      >
-        <div className="container mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
-          <a
-            href="#"
-            className="text-white font-display font-bold text-lg md:text-xl tracking-tight flex items-center gap-1.5 md:gap-2"
-          >
-            <div className="w-7 h-7 md:w-8 md:h-8 bg-brand-accent rounded flex items-center justify-center text-brand-black font-mono font-bold text-xs md:text-sm">
-              DD
-            </div>
-            <span className="hidden sm:inline">
-              Debsourya<span className="text-brand-accent">.</span>
-            </span>
-          </a>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            {["Skills", "Projects"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-xs lg:text-sm font-medium text-gray-300 hover:text-white transition-colors uppercase tracking-widest font-mono hover:text-brand-accent"
-              >
-                {item}
-              </a>
-            ))}
+    <main className="min-h-screen overflow-x-hidden bg-brand-canvas font-sans text-brand-ink antialiased selection:bg-brand-accent selection:text-brand-ink">
+      <div className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4 md:px-6 md:pt-5">
+        <nav
+          className={`mx-auto max-w-6xl border border-brand-ink/10 bg-white/82 shadow-[0_18px_45px_rgba(23,23,23,0.08)] backdrop-blur-xl transition-all duration-300 ${
+            isMenuOpen ? "rounded-[30px]" : "rounded-full"
+          }`}
+        >
+          <div className="flex items-center justify-between px-4 py-3 sm:px-5">
             <a
-              href="#contact"
-              className="px-4 py-1.5 md:px-5 md:py-2 rounded border border-white/20 text-white font-mono text-[10px] md:text-xs hover:bg-white hover:text-black transition-colors"
+              href="#"
+              className="flex items-center gap-3 text-brand-ink"
+              onClick={() => setIsMenuOpen(false)}
             >
-              CONTACT_ME
+              <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-brand-accent text-xs font-semibold uppercase tracking-[0.24em] text-brand-ink">
+                DD
+              </div>
+              <div className="hidden sm:block">
+                <p className="font-display text-lg font-bold leading-none">
+                  Debsourya Datta
+                </p>
+                <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.24em] text-brand-muted">
+                  Full Stack Engineer
+                </p>
+              </div>
             </a>
-          </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              {isMenuOpen ? (
-                <path d="M18 6L6 18M6 6l12 12" />
-              ) : (
-                <path d="M3 12h18M3 6h18M3 18h18" />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-brand-black p-4 md:p-6 border-b border-white/10 shadow-2xl">
-            <div className="flex flex-col space-y-4 md:space-y-6">
-              {["Skills", "Projects"].map((item) => (
+            <div className="hidden items-center gap-7 md:flex">
+              {navigationItems.map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-base md:text-lg font-medium text-gray-300 hover:text-brand-accent font-mono"
+                  key={item.label}
+                  href={item.href}
+                  className="font-mono text-xs uppercase tracking-[0.24em] text-brand-muted transition-colors hover:text-brand-ink"
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
               <a
-                href="#contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-brand-accent font-mono text-base md:text-lg"
+                href="mailto:debsouryadatta@gmail.com"
+                className="rounded-full bg-brand-ink px-5 py-2 font-mono text-[11px] uppercase tracking-[0.24em] text-brand-canvas transition-colors hover:bg-brand-ink/90"
               >
-                CONTACT_ME
+                Email Me
               </a>
             </div>
+
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-brand-ink transition-colors hover:bg-brand-ink/5 md:hidden"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                {isMenuOpen ? (
+                  <path d="M18 6L6 18M6 6l12 12" />
+                ) : (
+                  <path d="M4 7h16M4 12h16M4 17h16" />
+                )}
+              </svg>
+            </button>
           </div>
-        )}
-      </nav>
+
+          {isMenuOpen && (
+            <div className="border-t border-brand-ink/10 px-5 pb-5 pt-3 md:hidden">
+              <div className="flex flex-col gap-4">
+                {navigationItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="font-mono text-xs uppercase tracking-[0.24em] text-brand-muted transition-colors hover:text-brand-ink"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+                <a
+                  href="mailto:debsouryadatta@gmail.com"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="inline-flex w-fit rounded-full bg-brand-ink px-4 py-2 font-mono text-[11px] uppercase tracking-[0.24em] text-brand-canvas"
+                >
+                  Email Me
+                </a>
+              </div>
+            </div>
+          )}
+        </nav>
+      </div>
 
       <Hero />
       <Skills />

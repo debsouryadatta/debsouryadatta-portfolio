@@ -1,68 +1,42 @@
-/* Global Styles */
 * {
   box-sizing: border-box;
 }
 
-body {
-  overflow-x: hidden;
-  margin: 0;
-}
-
-/* Horizontal Gallery Styles */
-.horiz-gallery-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.horiz-gallery-strip {
-  display: flex;
-  flex-wrap: nowrap;
-  will-change: transform;
-  position: relative;
-}
-
-.project-card {
-  flex-shrink: 0;
-}
-
-/* Smooth scroll behavior for the page */
 html {
   scroll-behavior: smooth;
 }
 
-/* Hide scrollbar during horizontal scroll for cleaner look */
-.horiz-gallery-wrapper::-webkit-scrollbar {
-  display: none;
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: #f6f1e8;
+  color: #171717;
+  text-rendering: optimizeLegibility;
 }
 
-.horiz-gallery-wrapper {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+img {
+  display: block;
+  max-width: 100%;
 }
 
-/* Service panel transitions */
-.service-panel {
-  will-change: transform;
+section {
+  scroll-margin-top: 6rem;
 }
 
-/* Pin spacer fix for GSAP */
-.pin-spacer {
-  flex-shrink: 0;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-/* Selection styles for yellow background sections */
-#skills *::selection,
-#skills::selection,
-#contact *::selection,
-#contact::selection {
-  background-color: #0a0a0a;
-  color: #f5b301;
+::-webkit-scrollbar-track {
+  background: #efe7da;
 }
 
-#skills *::-moz-selection,
-#skills::-moz-selection,
-#contact *::-moz-selection,
-#contact::-moz-selection {
-  background-color: #0a0a0a;
-  color: #f5b301;
+::-webkit-scrollbar-thumb {
+  background: #cbbba0;
+  border-radius: 999px;
+  border: 2px solid #efe7da;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b29b73;
 }

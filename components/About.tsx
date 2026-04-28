@@ -89,7 +89,7 @@ export const About: React.FC = () => {
              </div>
              
              <div className="max-w-3xl relative z-10">
-                <div className="font-mono text-brand-accent mb-4 text-xs md:text-sm">> Performance_Metrics.log</div>
+                <div className="font-mono text-brand-accent mb-4 text-xs md:text-sm">&gt; Performance_Metrics.log</div>
                 <h3 className="font-display text-3xl md:text-5xl font-bold mb-8">
                   Optimized for<br/>Scale & Speed
                 </h3>
