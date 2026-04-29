@@ -132,13 +132,12 @@ export const Hero: React.FC = () => {
             <div className="relative mx-auto max-w-[440px]">
               <div className="relative overflow-hidden rounded-[34px] border border-brand-ink/10 bg-white p-3 shadow-[0_28px_80px_rgba(23,23,23,0.12)]">
                 <div className="absolute inset-x-0 top-0 h-28 bg-[linear-gradient(180deg,_rgba(215,164,73,0.22)_0%,_rgba(255,255,255,0)_100%)]" />
-                <div className="relative overflow-hidden rounded-[26px] bg-brand-ink">
+                <div className="relative overflow-hidden rounded-[26px] bg-brand-ink/5 ring-1 ring-brand-ink/8">
                   <img
-                    src="https://avatars.githubusercontent.com/u/91617309?v=4"
+                    src="/profile.png"
                     alt="Debsourya Datta"
-                    className="aspect-[4/5] w-full object-cover object-center"
+                    className="aspect-[4/5] w-full object-cover object-[center_22%]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/82 via-brand-ink/15 to-transparent" />
                 </div>
               </div>
             </div>
