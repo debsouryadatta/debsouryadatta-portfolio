@@ -55,6 +55,62 @@ const getCaseStudyCtaIcon = (label: string) => {
 
 const SWIPE_PX = 48;
 
+const CarouselSlideMedia: React.FC<{
+  item: ProductImageSlide;
+  loadingImage: "eager" | "lazy";
+}> = ({ item, loadingImage }) => {
+  if (item.driveEmbedSrc) {
+    return (
+      <iframe
+        src={item.driveEmbedSrc}
+        title={item.alt}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        allowFullScreen
+        className="h-full w-full border-0 bg-black"
+        loading={loadingImage === "eager" ? "eager" : "lazy"}
+      />
+    );
+  }
+  return (
+    <img
+      src={item.image}
+      alt={item.alt}
+      className="h-full w-full object-cover object-top"
+      loading={loadingImage}
+      decoding="async"
+    />
+  );
+};
+
+const LightboxSlideMedia: React.FC<{ item: ProductImageSlide }> = ({
+  item,
+}) => {
+  if (item.driveEmbedSrc) {
+    return (
+      <div className="relative mx-auto aspect-video w-full max-w-full max-h-[min(78vh,860px)] overflow-hidden rounded-lg bg-black">
+        <iframe
+          src={item.driveEmbedSrc}
+          title={item.alt}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+          allowFullScreen
+          className="absolute inset-0 h-full w-full border-0"
+        />
+      </div>
+    );
+  }
+  return (
+    <img
+      src={item.image}
+      alt={item.alt}
+      className="mx-auto max-h-[min(78vh,860px)] w-auto max-w-full object-contain"
+      draggable={false}
+    />
+  );
+};
+
+const slideReactKey = (item: ProductImageSlide, i: number) =>
+  `${item.driveEmbedSrc ?? item.image}-${i}`;
+
 const lightboxNavBtnClass =
   "pointer-events-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/35 bg-neutral-900 text-white shadow-[0_6px_22px_rgba(0,0,0,0.55),0_0_0_1px_rgba(0,0,0,0.35)] transition-colors hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent sm:h-11 sm:w-11";
 
@@ -151,12 +207,7 @@ const ImageGalleryLightbox: React.FC<{
             else onIndexChange((index + 1) % n);
           }}
         >
-          <img
-            src={active.image}
-            alt={active.alt}
-            className="mx-auto max-h-[min(78vh,860px)] w-auto max-w-full object-contain"
-            draggable={false}
-          />
+          <LightboxSlideMedia item={active} />
         </div>
 
         {n > 1 ? (
@@ -296,17 +347,14 @@ const ImageCarouselWithExpand: React.FC<{
             >
               {items.map((item, i) => (
                 <div
-                  key={`${item.image}-${i}`}
+                  key={slideReactKey(item, i)}
                   className="h-full shrink-0"
                   style={{ width: `${100 / n}%` }}
                   aria-hidden={i !== index}
                 >
-                  <img
-                    src={item.image}
-                    alt={item.alt}
-                    className="h-full w-full object-cover object-top"
-                    loading={i === 0 ? "eager" : "lazy"}
-                    decoding="async"
+                  <CarouselSlideMedia
+                    item={item}
+                    loadingImage={i === 0 ? "eager" : "lazy"}
                   />
                 </div>
               ))}

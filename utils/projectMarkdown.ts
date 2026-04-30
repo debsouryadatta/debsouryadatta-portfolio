@@ -12,7 +12,20 @@ export interface ProjectTextBlock {
 export interface ProductImageSlide {
   image: string;
   alt: string;
+  /** When set, embed this Google Drive preview URL in an iframe instead of `<img src={image}>`. */
+  driveEmbedSrc?: string;
 }
+
+const GOOGLE_DRIVE_FILE_RE =
+  /drive\.google\.com\/(?:file\/d\/|open\?[^#]*id=)([a-zA-Z0-9_-]+)/;
+
+export const googleDrivePreviewEmbedSrc = (url: string): string | null => {
+  const trimmed = url.trim();
+  const m = trimmed.match(GOOGLE_DRIVE_FILE_RE);
+  const id = m?.[1];
+  if (!id) return null;
+  return `https://drive.google.com/file/d/${id}/preview`;
+};
 
 export interface ProjectLink {
   label: string;
@@ -173,10 +186,15 @@ const parseFeatures = (source: string): ProjectTextBlock[] =>
 const parseProductImageSlides = (source: string): ProductImageSlide[] => {
   const matches = [...source.matchAll(/!\[([^\]]*)]\(([^)]+)\)/g)];
   return matches
-    .map((m) => ({
-      alt: m[1]?.trim() || "Product screenshot",
-      image: m[2]?.trim() ?? "",
-    }))
+    .map((m) => {
+      const image = m[2]?.trim() ?? "";
+      const embed = googleDrivePreviewEmbedSrc(image);
+      return {
+        alt: m[1]?.trim() || "Product screenshot",
+        image,
+        ...(embed ? { driveEmbedSrc: embed } : {}),
+      };
+    })
     .filter((s) => Boolean(s.image));
 };
 
